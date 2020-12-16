@@ -1,7 +1,9 @@
 const express = require('express')
 const app = express()
 require('dotenv').config()
+const cors = require('cors')
 
+app.use(cors({origin: '*'}))
 app.use(express.urlencoded())
 app.use(express.json())
 
@@ -13,7 +15,7 @@ app.get('/', (req, res) => {
 
 app.use('/bounties', require('./controllers/bountiesController'))
 
-const PORT = process.env.PORT || 3000
+const PORT = process.env.PORT || 3001
 app.listen(PORT, () => {
   console.log(`Server started on ${PORT}`);
 })

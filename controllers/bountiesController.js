@@ -6,19 +6,22 @@ router.get('/', (req, res) => {
   models.Bounty.find().then((foundBounties) => {
     res.status(200).json({ bounties: foundBounties })
   })
-  .catch((error) => res.send({ error }))})
+  .catch((error) => res.send({ error }))
+})
 
 router.get('/:id', (req, res) => {
   models.Bounty.findOne({_id: req.params.id}).then((bounty) => {
     res.status(200).json({ bounty })
   })
-  .catch((error) => res.send({ error }))})
+  .catch((error) => res.send({ error }))
+})
 
 router.post('/', (req, res) => {
   models.Bounty.create(req.body).then((bounty) => {
     res.status(201).json({ bounty })
   })
-  .catch((error) => res.send({ error }))})
+  .catch((error) => res.send({ error }))
+})
 
 router.put('/:id', (req, res) => {
   // const wantedFor = req.body.wantedFor
